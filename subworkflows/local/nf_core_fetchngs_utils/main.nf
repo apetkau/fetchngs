@@ -81,7 +81,7 @@ workflow PIPELINE_INITIALISATION {
     // Read in ids from --input file
     Channel
         .from(ch_input)
-        .splitCsv(header:false, sep:'', strip:true)
+        .splitCsv(header:true, sep:'', strip:true)
         .map { it[0] }
         .unique()
         .set { ch_ids }
